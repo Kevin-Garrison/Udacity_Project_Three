@@ -35,10 +35,9 @@ class MainActivity : AppCompatActivity() {
 
     private var downloadID: Long = 0
 
-    private var filesDownloaded = 0
     private var fileUrl: String? = null
     private var fileName: String? = null
-    private var fileSize: Long = 0L
+    private var fileSize: Long = 1L
 
     lateinit var netStatus: NetStatus
 
@@ -76,7 +75,6 @@ class MainActivity : AppCompatActivity() {
             val action = intent?.action
 
             if (downloadID == id) {
-
                 if (action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {
                     downloadComplete = true
                 }
@@ -115,7 +113,7 @@ class MainActivity : AppCompatActivity() {
     fun onRadioButtonClicked(view: View) {
         selectedRadio = view as RadioButton
 
-        var url: String = ""
+        var url = ""
 
         var valid = false
 
@@ -150,11 +148,15 @@ class MainActivity : AppCompatActivity() {
 
         if (fileUrl != null) {
 
-            if(!fileUrl!!.startsWith("https://")){
-                fileUrl = "https://"+ fileUrl
+            if (!fileUrl!!.startsWith("https://")) {
+                fileUrl = "https://" + fileUrl
             }
 
-            customButton.setState(ButtonState.Loading)
+            if (fileName.isNullOrEmpty()) {
+                fileName = "custom_download.zip"
+            }
+
+            customButton.setState(ButtonState.Clicked)
             downloadComplete = false
 
             createChannel()
@@ -215,6 +217,8 @@ class MainActivity : AppCompatActivity() {
 
         val total = fileSize
 
+        customButton.setState(ButtonState.Loading)
+
         val mRunnable = Runnable() {
             while (!downloadComplete) {
 
@@ -231,6 +235,7 @@ class MainActivity : AppCompatActivity() {
                                 applicationContext,
                                 getString(R.string.status_failed)
                             )
+                            resetDetails()
                         }
                         DownloadManager.STATUS_SUCCESSFUL -> {
                             customButton.setCurrentPosition(1F)
@@ -240,7 +245,7 @@ class MainActivity : AppCompatActivity() {
                                 applicationContext,
                                 getString(R.string.status_passed)
                             )
-                            filesDownloaded++
+                            resetDetails()
                         }
                         DownloadManager.STATUS_RUNNING -> {
                             if(total >= 3000000) {
@@ -257,6 +262,12 @@ class MainActivity : AppCompatActivity() {
         }
         val mExecutor = newSingleThreadExecutor()
         mExecutor.execute(mRunnable)
+    }
+
+    private fun resetDetails() {
+        fileUrl = ""
+        fileName = ""
+        fileSize = 1
     }
 
     private fun showToast(text: String) {

@@ -28,7 +28,7 @@
 
     <!--Details Activity-->
     <string name="details">Details</string>
-    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_detail">Download Details</string>
     <string name="title_filename">File name:</string>
     <string name="title_status">Status:</string>
     <string name="status_failed">Failed!</string>
