@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Load App</string>
+    <string name="app_description">Udacity: Android Kotlin Nanodegree LoadApp Project</string>
+
+    <!--Notifications-->
+    <string name="notification_title">Udacity: Android Kotlin Nanodegree </string>
+    <string name="notification_button">Check the status</string>
+    <string name="download_notification_channel_id" translatable="false">download_channel</string>
+    <string name="download_notification_channel_name" translatable="true">Download</string>
+
+    <!--Udacity Project-->
+    <string name="udacity_project_url">https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip</string>
+    <string name="udacity_download_description">LoadApp - Current Repository By Udacity.zip</string>
+    <!--Glide Project-->
+    <string name="glide_project_url">https://github.com/bumptech/glide/archive/master.zip</string>
+    <string name="glide_download_description">Glide - Image Loading Library By BumpTech.zip</string>
+    <!--Retrofit Project-->
+    <string name="retrofit_project_url">https://github.com/square/retrofit/archive/master.zip</string>
+    <string name="retrofit_download_description">Retrofit - Type-safe HTTP client for Android and Java By Square, Inc.zip</string>
+
+    <!--Button Status Labels-->
+    <string name="button_status_test">Loading App</string>
+    <string name="button_status_loading">We are downloading!</string>
+    <string name="button_status_idle">Select a file to download</string>
+    <string name="button_status_download">Download</string>
+    <string name="button_status_downloading">We are loading</string>
+    <string name="button_status_download_complete">Download Complete</string>
+
+    <!--Details Activity-->
+    <string name="details">Details</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_filename">File name:</string>
+    <string name="title_status">Status:</string>
+    <string name="status_failed">Failed!</string>
+    <string name="status_passed">Successful!</string>
+    <string name="button_dismiss">OK</string>
+
+    <!--Main Activity-->
+    <string name="cloud_description">Cloud downlaod image</string>
+    <string name="hint_custom_url">URL of file to be downloaded (or enter a valid file URL)</string>
+    <string name="http_header">https://</string>
+    <string name="please_select_file">Please select a file to download</string>
+</resources>
